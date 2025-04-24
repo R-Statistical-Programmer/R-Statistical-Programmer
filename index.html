@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Video Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="logo">
+            <h1>R Classes</h1>
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div id="loginError" class="error-message"></div>
+        </form>
+    </div>
+
+    <!-- Video Listing Page -->
+    <div id="videosPage" class="hidden">
+        <header>
+            <h1>Begin your R journey with Shubham R Classes!</h1>
+            <nav>
+                <button id="logoutBtn" class="btn">Logout</button>
+                <button id="adminBtn" class="btn hidden">Admin Panel</button>
+            </nav>
+        </header>
+        <main>
+            <div class="video-grid" id="videoGrid">
+                <!-- Videos will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPage" class="hidden">
+        <header>
+            <h1>Begin your R journey with Shubham R Classes! Admin</h1>
+            <nav>
+                <button id="backToVideosBtn" class="btn">Back to Videos</button>
+                <button id="adminLogoutBtn" class="btn">Logout</button>
+            </nav>
+        </header>
+        <div class="admin-container">
+            <div class="admin-sidebar">
+                <ul>
+                    <li class="active" data-section="upload">Upload Videos</li>
+                    <li data-section="manage">Manage Videos</li>
+                </ul>
+            </div>
+            <div class="admin-content">
+                <div id="uploadSection">
+                    <h2>Upload New Video</h2>
+                    <div class="upload-area" id="dropArea">
+                        <p>Drag & drop video files here or</p>
+                        <input type="file" id="videoUpload" accept="video/*" style="display: none;">
+                        <button class="btn" id="selectFilesBtn">Select Files</button>
+                    </div>
+                    <div id="uploadProgress" class="hidden">
+                        <p>Uploading: <span id="uploadFileName"></span></p>
+                        <progress id="uploadProgressBar" value="0" max="100"></progress>
+                        <p id="uploadStatus"></p>
+                    </div>
+                </div>
+                <div id="manageSection" class="hidden">
+                    <h2>Manage Videos</h2>
+                    <div class="video-list" id="adminVideoList">
+                        <!-- Admin video list will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player -->
+    <div id="playerPage" class="hidden">
+        <header>
+            <h1>Begin your R journey with Shubham R Classes!</h1>
+            <nav>
+                <button id="backFromPlayerBtn" class="btn">Back to Videos</button>
+                <button id="playerLogoutBtn" class="btn">Logout</button>
+            </nav>
+        </header>
+        <div class="player-container">
+            <div id="recordingWarning" class="recording-warning hidden">
+                Screen recording detected! Video playback has been disabled.
+            </div>
+            <div class="video-wrapper">
+                <video id="secureVideoPlayer" controls>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <h2 id="videoTitle">Sample Video</h2>
+            <p id="videoDescription">This is a sample video description.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
